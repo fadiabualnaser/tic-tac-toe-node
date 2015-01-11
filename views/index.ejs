@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="fragment" content="!">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/loader.css' />
+  </head>
+  <body>
+
+  	<span id="message"></span>
+
+    <h1>Tic tac toe is a mulity player game <br>built with the latest technologies </h1>
+    <h2>We have <span id="numOfUsers"></span> player online</h2>
+    
+
+    <div id="chartcterLogo">
+      
+    </div>
+    <div class="nicknameContainer">
+      <input type="text" class="input-nickname" id="nickname" placeholder="nickname"/>
+      <br> 
+      <button id="findPlyer">Find a player</button>  
+    </div>
+
+    <div class="gameContainer" id="gameContainer">
+      
+      <table>
+        <tr r="0">
+          <td c="0"></td>
+          <td c="1"></td>
+          <td c="2"></td>
+        </tr>
+        <tr r="1">
+          <td c="0"></td>
+          <td c="1"></td>
+          <td c="2"></td>
+        </tr>
+        <tr r="2">
+          <td c="0"></td>
+          <td c="1"></td>
+          <td c="2"></td>
+        </tr>
+      </table>
+      <div class="gameController">
+        <button class="repeat hidden">Repeat</button>
+        <button class="quit">quit</button>
+      </div>
+    </div>
+
+    <span id="loading" class="loading"></span>
+
+	<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/javascripts/socket.js"></script>   
+
+  </body>
+
+ 
+</html>

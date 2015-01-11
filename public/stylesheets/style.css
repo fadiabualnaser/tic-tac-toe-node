@@ -1,0 +1,190 @@
+html{
+  height: 100%;
+}
+body {
+  	/*padding: 50px;*/
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  	background-image: url('/images/bg-texture.jpg');
+  	text-align: center;	
+  	min-height: 98%;
+	margin-top: 50px;
+	padding: 0;
+
+}
+
+a {
+  	color: #00B7FF;
+}
+
+
+body * {
+	font-size:21px; 
+  	font-weight:bold; 
+	font-style:none; 
+	font-family:cursive;
+	color:#221D1D;
+}
+
+
+#chartcterLogo{
+	display: table;
+	margin:auto;
+	width: 30px;
+	height: 30px;
+}
+.input-nickname { 
+	border-style:solid; 
+	padding:7px; 
+	border-width:4px; 
+	border-radius:9px; 
+	background-color:#c225c2; 
+	border-color:#bbe693; 
+	
+	text-shadow:0px 0px 0px rgba(42,42,42,.75); 
+	box-shadow: 6px 8px 11px 0px rgba(189,45,189,.74); 
+
+	margin-bottom: 50px;
+ } 
+.input-nickname:focus { outline:none; } 
+
+#findPlyer {
+	margin-bottom: 20px;
+	border-top: 1px solid #787a79;
+	background: #8a507c;
+	background: -webkit-gradient(linear, left top, left bottom, from(#e33fde), to(#8a507c));
+	background: -webkit-linear-gradient(top, #e33fde, #8a507c);
+	background: -moz-linear-gradient(top, #e33fde, #8a507c);
+	background: -ms-linear-gradient(top, #e33fde, #8a507c);
+	background: -o-linear-gradient(top, #e33fde, #8a507c);
+	padding: 12.5px 25px;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	text-decoration: none;
+	vertical-align: middle;
+}
+#findPlyer:hover {
+	border-top-color: #91306f;
+	background: #91306f;
+	color: #ccc;
+}
+#findPlyer:active {
+   	border-top-color: #b825cf;
+   	background: #b825cf;
+}
+
+
+.gameContainer {
+	width: 500px;
+	height: 500px;
+	display: table;
+	margin : 0 auto;
+}
+
+.gameContainer table {
+	width: 100%;
+	height: 100%;
+}
+table , tr , td {
+	border: 1px solid;
+	cursor: pointer;
+}
+
+table:not(.finished) td:not(.x):not(.o):hover {
+	background-color:grey; 
+}
+
+.x {
+	/*background-color: red;*/
+	background-image: url('/images/x.png');
+	background-size: cover;
+}
+
+.o {
+	/*background-color: green;*/
+	background-image: url('/images/o.png');
+	background-size: cover;
+}
+
+.blue {
+	background-color: blue;
+}
+.gameController{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.gameController button{
+	min-width: 100px;
+}
+.visable {
+	display:inherit; ;
+}
+.hidden{
+	display: none;
+}
+
+.repeat {
+	border-top: 1px solid #96d1f8;
+	background: #2175ad;
+	background: -webkit-gradient(linear, left top, left bottom, from(#5db0e8), to(#2175ad));
+	background: -webkit-linear-gradient(top, #5db0e8, #2175ad);
+	background: -moz-linear-gradient(top, #5db0e8, #2175ad);
+	background: -ms-linear-gradient(top, #5db0e8, #2175ad);
+	background: -o-linear-gradient(top, #5db0e8, #2175ad);
+	padding: 4px 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: white;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.repeat:hover {
+	border-top-color: #28597a;
+	background: #28597a;
+	color: #ccc;
+}
+.repeat:active {
+	border-top-color: #1b435e;
+	background: #1b435e;
+}
+
+
+
+.quit {
+	border-top: 1px solid #c96d6e;
+	background: #cf2550;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ba3030), to(#cf2550));
+	background: -webkit-linear-gradient(top, #ba3030, #cf2550);
+	background: -moz-linear-gradient(top, #ba3030, #cf2550);
+	background: -ms-linear-gradient(top, #ba3030, #cf2550);
+	background: -o-linear-gradient(top, #ba3030, #cf2550);
+	padding: 4px 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: white;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.quit:hover {
+	border-top-color: #f70d18;
+	background: #f70d18;
+	color: #ccc;
+}
+.quit:active {
+	border-top-color: #5c1b1b;
+	background: #5c1b1b;
+}
