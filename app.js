@@ -16,11 +16,11 @@ var app = express();
 // all environments
 
 
-app.set('port', process.env.PORT || 3000);
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "192.168.1.17";
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT  || 3000);
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "192.168.0.106";
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.favicon());
+// app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());

@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-	var socket =  io.connect('http://192.168.1.17:3000');//io('localhost:3000');
+	var socket =  io.connect();//io('localhost:3000');
 	var loadingSpan = $('span#loading');
 	var message = $('#message');
 	var findPlyer = $('#findPlyer');
@@ -13,6 +13,10 @@ $(document).ready(function(){
 	loadingSpan.hide();
 	findPlyer.hide();
 
+	// check if there is a coocki fill the name 
+
+
+
 	nickname.keyup(function(){
 
 		var val = $(this).val();
@@ -22,6 +26,9 @@ $(document).ready(function(){
 			findPlyer.fadeOut('slow');
 		}
 	});
+
+	nickname.val(getCookie("nickname"));
+	nickname.keyup();
 
 	socket.on('turn' , function(c){
 		var coordinate = c.coordinate;
@@ -66,10 +73,21 @@ $(document).ready(function(){
 		
 		socket.emit('repeat');
 	});
+
+	$('.quit').click(function  () {
+		socket.emit('quit');
+		$('.nicknameContainer').show();
+		resetGame();
+		// nickname.value(playerName);
+		$('#gameContainer').hide();
+	});
+
 	findPlyer.click(function  () {
 		showLoader();
+
 		var nkname = nickname.val();
 		playerName = nkname;
+		setCookie("nickname" , nkname , 360);
 		$('.nicknameContainer').hide();
 		socket.emit("findPlyer" , {
 			nickname : nkname
@@ -92,13 +110,13 @@ $(document).ready(function(){
 		hideLoader();
 		playerCarecter = p.chartcter;
 		wait = p.wait;
-		var connect_msg = 'congrates you are connected With Plyer his name is '  + p.partner_name ;
+		var connect_msg = 'your partner name is <b>'  + p.partner_name + '</b>';
 
 		$('#chartcterLogo').addClass(playerCarecter);
 		if(wait){
 			// connect_msg += '<br> please for ' + p.partner_name +' to pick';
 		} 
-		message.text(connect_msg);
+		message.html(connect_msg);
 		
 		$('#gameContainer').show();
 	});
@@ -151,4 +169,36 @@ function oposite(c){
 
 function resetGame(){
 	$('#gameContainer tr td').removeClass('o').removeClass('x').removeClass('blue');
+	$('#chartcterLogo').removeClass('o').removeClass('x')
 }
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+// function checkCookie(name) {
+//     var user=getCookie(name);
+//     if (user != "") {
+
+//     } else {
+//        if (user != "" && user != null) {
+//            setCookie(name, user, 360);
+//        }
+//     }
+// }

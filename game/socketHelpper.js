@@ -32,6 +32,14 @@ function socketHelpper (io) {
 	  		});
 	  	});
 
+	  	socket.on('quit' ,function(){
+	  		PlayersCollection.removePlayer(socket , function(s_id){
+	  			io.to(s_id).emit('partnerDisconnected');
+	  		});
+	  	});
+
+	  	
+
 	  	socket.on('findPlyer' , function(nkname){
 	  		var nickname = nkname.nickname;
 
