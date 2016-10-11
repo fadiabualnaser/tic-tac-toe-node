@@ -53,25 +53,3 @@ server.listen(app.get('port') , ipaddress);
 
 var io = require('socket.io')(server);
 var socketHelpper = require("./game/socketHelpper.js").socketHelpper(io);
-
-// io.set('authorization', function(handshakeData, accept) {
-
-//   if (handshakeData.headers.cookie) {
-
-//     handshakeData.cookie = cookie.parse(handshakeData.headers.cookie);
-//     console.log(handshakeData.cookie)
-//     handshakeData.sessionID = cookieParser.signedCookies(handshakeData.cookie , 'secret');
-
-//     if (handshakeData.cookie['express.sid'] == handshakeData.sessionID) {
-//       return accept('Cookie is invalid.', false);
-//     } 
-
-//   } else {
-//     return accept('No cookie transmitted.', false);
-//   }
-
-//   accept(null, true);
-// });
-
-
-

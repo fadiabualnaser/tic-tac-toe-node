@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-	var socket =  io.connect();//io('localhost:3000');
+	var socket =  io.connect("http://xo-nodegame.rhcloud.com:8000");//io('localhost:3000');
 	var loadingSpan = $('span#loading');
 	var message = $('#message');
 	var findPlyer = $('#findPlyer');
@@ -106,6 +106,7 @@ $(document).ready(function(){
 		});
 		wait = true;
 	});
+	
 	socket.on('connectedWithPlayer' , function(p){
 		hideLoader();
 		playerCarecter = p.chartcter;
@@ -123,7 +124,7 @@ $(document).ready(function(){
 
 	socket.on('partnerDisconnected' , function(){
 		
-		message.text('your partner gone !! sorry for you, you are alone ');
+		message.text('you are alone ');
 
 		$('.nicknameContainer').show();
 		resetGame();

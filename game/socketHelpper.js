@@ -14,9 +14,9 @@ function socketHelpper (io) {
 	  	};
 	  	++count;
 	  	io.emit('numberOfuers' , {
-
 	  		num : count
 	  	})
+	  	
 	  	PlayersCollection.addPlayer(socket);
 	  	
 	  	//console.log(users);
